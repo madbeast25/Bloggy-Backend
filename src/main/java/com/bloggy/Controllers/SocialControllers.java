@@ -60,4 +60,11 @@ public class SocialControllers {
 		
 		return new ResponseEntity<>(profile,HttpStatus.OK);
 	}
+	
+	@GetMapping("/getStatus/{user_id}/{follow_id}")
+	public ResponseEntity<Boolean> getStatus(@PathVariable int user_id,@PathVariable int follow_id){
+		Boolean followed=service.getStatus(user_id, follow_id);
+		
+		return new ResponseEntity<>(followed,HttpStatus.OK);
+	}
 }

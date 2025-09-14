@@ -138,4 +138,18 @@ public class SocialServices {
 		
 		return user_profile;
 	}
+	
+	public Boolean getStatus(int user_id,int follow_id) {
+		User user=repo.findById(user_id).get();
+		
+		Set<User> following=user.getFollowing();
+		
+		for(User fellow:following) {
+			if(fellow.getId() == follow_id) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
 }

@@ -40,5 +40,7 @@ public class PhotoControllers {
 		
 		return ResponseEntity.ok().contentType(MediaType.valueOf(photo.getType())).body(photo.getData());
 	}
+	
+	
 
 }
