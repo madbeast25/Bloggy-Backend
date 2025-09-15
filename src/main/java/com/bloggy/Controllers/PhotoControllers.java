@@ -38,7 +38,7 @@ public class PhotoControllers {
 	public ResponseEntity<byte[]> downloadPic(@PathVariable int id){
 		Photo photo=service.getPhoto(id);
 		
-		return ResponseEntity.ok().contentType(MediaType.valueOf(photo.getType())).body(photo.getData());
+		return ResponseEntity.ok().contentType(photo != null ? MediaType.valueOf(photo.getType()) : MediaType.APPLICATION_JSON).body(photo.getData());
 	}
 	
 	
